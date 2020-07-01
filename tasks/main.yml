@@ -1,0 +1,28 @@
+---
+
+- include_tasks: Debian_update_all.yml
+  when: packages_update_all | default(True) and ansible_os_family == 'Debian'
+
+- name: Install basic packages
+  package:
+    name: '{{ basic_packages }}'
+    state: present
+
+- name: Add custom apt-key
+  apt_key:
+    url: '{{ packages_role_custom_key }}'
+    state: present
+  when: packages_role_custom_key | length > 0
+  
+- name: Add custom apt repo
+  apt_repository:
+    repo: '{{ packages_role_custom_repo }}'
+    state: present
+    filename: 'additional_repo'
+  when: packages_role_custom_repo | length > 0
+
+- name: Install custom packages
+  package:
+    name: '{{ packages_role_custom_packages }}'
+    state: present
+  when: packages_role_custom_packages | length > 0

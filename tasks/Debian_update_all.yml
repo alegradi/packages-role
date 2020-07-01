@@ -1,0 +1,8 @@
+---
+
+- name: Update all packages (Debian)
+  apt:
+    name: '*'
+    state: latest
+    update_cache: True
+    force_apt_get: True

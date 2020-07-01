@@ -1,0 +1,16 @@
+---
+
+basic_packages:
+  - git
+  - lsof
+  - telnet
+  - curl
+  - wget
+  - bash-completion
+  - acl
+  - atop
+  - strace
+
+packages_role_custom_packages: []
+packages_role_custom_key: []
+packages_role_custom_repo: []

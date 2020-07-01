@@ -1,0 +1,11 @@
+galaxy_info:
+  author: Adam Legradi
+  description: Ansible role for installing packages
+  company: private
+  license: MIT
+  min_ansible_version: 2.9
+  galaxy_tags:
+    - packages-role
+
+dependencies: []
+
