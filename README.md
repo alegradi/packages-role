@@ -11,7 +11,23 @@ Any pre-requisites that may not be covered by Ansible itself or the role should 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+`packages_role_custom_packages` - List of additional packages to be installed
+`packages_role_custom_key` - Custom key for extra repo (only accepts one atm)
+`packages_role_custom_repo` - Custom additional repo (only accepts one atm)
+
+### Usage
+
+Example:
+```
+  vars:
+    packages_role_custom_packages:
+      - docker
+      - apt-transport-https
+      - kubeadm
+    packages_role_custom_key: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
+    packages_role_custom_repo: "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+```  
+
 
 Dependencies
 ------------
