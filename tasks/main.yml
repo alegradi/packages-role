@@ -8,10 +8,12 @@
     name: '{{ basic_packages }}'
     state: present
 
+## Testing if I can use a list of items here
 - name: Add custom apt-key
   apt_key:
-    url: '{{ packages_role_custom_key }}'
+    url: '{{ item }}'
     state: present
+  with_items: '{{ packages_role_custom_key }}'
   when: packages_role_custom_key | length > 0
   
 - name: Add custom apt repo
@@ -26,3 +28,12 @@
     name: '{{ packages_role_custom_packages }}'
     state: present
   when: packages_role_custom_packages | length > 0
+
+## Testing if this works
+#- name: Install extra custom packages  ## please rename this
+#  package:
+#    name: '{{ packages_role_extra_packages }}'
+#    state: present
+#  when: packages_role_extra_packages | length > 0
+#  tags:
+#    - packages_extra_packages
