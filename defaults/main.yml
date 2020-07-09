@@ -14,3 +14,4 @@ basic_packages:
 packages_role_custom_packages: []
 packages_role_custom_key: []
 packages_role_custom_repo: []
+#packages_role_extra_packages: []
